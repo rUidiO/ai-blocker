@@ -1,0 +1,131 @@
+name: ios
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      lane:
+        description: 'fastlane lane to run'
+        required: true
+        default: 'build'
+        type: choice
+        options:
+          - build
+          - beta
+          - release
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install dependencies
+        run: bun install
+
+      - name: install rsvg-convert
+        run: brew install librsvg
+
+      - name: build extension
+        run: bun run build.ts
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: install fastlane
+        run: gem install fastlane
+
+      - name: setup code signing
+        uses: apple-actions/import-codesign-certs@v2
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+
+      - name: setup provisioning profile
+        uses: apple-actions/download-provisioning-profiles@v2
+        with:
+          bundle-id: org.kiddokraft.ai-blocker
+          issuer-id: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          api-key-id: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          api-private-key: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+
+      - name: run fastlane
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          TEAM_ID: ${{ secrets.TEAM_ID }}
+          ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
+          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+        run: |
+          cd ${{ github.workspace }}
+          if [ "${{ github.event_name }}" == "release" ]; then
+            fastlane ios beta
+          else
+            fastlane ios ${{ github.event.inputs.lane || 'build' }}
+          fi
+
+      - name: upload ipa artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-blocker-ios
+          path: dist/ios/ai-blocker.ipa
+        if: always()
+
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install dependencies
+        run: bun install
+
+      - name: install rsvg-convert
+        run: brew install librsvg
+
+      - name: build extension
+        run: bun run build.ts
+
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: install fastlane
+        run: gem install fastlane
+
+      - name: setup code signing
+        uses: apple-actions/import-codesign-certs@v2
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+
+      - name: run fastlane macos build
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          TEAM_ID: ${{ secrets.TEAM_ID }}
+        run: fastlane mac build
+
+      - name: upload macos artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-blocker-macos
+          path: dist/macos/ai-blocker.app
+        if: always()

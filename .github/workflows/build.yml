@@ -1,0 +1,46 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: setup bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: install dependencies
+        run: bun install
+
+      - name: install rsvg-convert
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+
+      - name: build
+        run: bun run build.ts --skip-safari
+
+      - name: upload chrome artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-blocker-chrome
+          path: dist/zip/ai-blocker-chrome.zip
+
+      - name: upload firefox artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-blocker-firefox
+          path: dist/zip/ai-blocker-firefox.zip
+
+      - name: upload store assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: store-assets
+          path: dist/store-assets/

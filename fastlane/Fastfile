@@ -1,0 +1,55 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "build ios app"
+  lane :build do
+    build_app(
+      project: "ai blocker/ai blocker/ai blocker.xcodeproj",
+      scheme: "ai blocker (iOS)",
+      export_method: "app-store",
+      output_directory: "dist/ios",
+      output_name: "ai-blocker.ipa"
+    )
+  end
+
+  desc "upload to testflight"
+  lane :beta do
+    build
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "upload to app store"
+  lane :release do
+    build
+    upload_to_app_store(
+      skip_screenshots: true,
+      skip_metadata: false,
+      submit_for_review: false
+    )
+  end
+end
+
+platform :mac do
+  desc "build macos app"
+  lane :build do
+    build_app(
+      project: "ai blocker/ai blocker/ai blocker.xcodeproj",
+      scheme: "ai blocker (macOS)",
+      export_method: "app-store",
+      output_directory: "dist/macos",
+      output_name: "ai-blocker.app"
+    )
+  end
+
+  desc "upload macos to app store"
+  lane :release do
+    build
+    upload_to_app_store(
+      skip_screenshots: true,
+      skip_metadata: false,
+      submit_for_review: false
+    )
+  end
+end

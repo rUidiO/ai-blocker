@@ -1,0 +1,13 @@
+{
+  "name": "ai-blocker",
+  "version": "1.0.0",
+  "description": "customizable ai blocking",
+  "scripts": {
+    "build": "bun run build.ts",
+    "watch": "bun run build.ts --watch"
+  },
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^120.0.4",
+    "typescript": "^5.3.3"
+  }
+}
