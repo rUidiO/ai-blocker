@@ -1,0 +1,157 @@
+name: Publish to Firefox Add-ons
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: 'Release channel'
+        required: true
+        default: 'listed'
+        type: choice
+        options:
+          - listed
+          - unlisted
+
+env:
+  ADDON_ID: 'ai-blocker@kiddokraft.org'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Install rsvg-convert
+        run: sudo apt-get update && sudo apt-get install -y librsvg2-bin
+
+      - name: Build extension
+        run: bun run build --skip-safari
+
+      - name: Generate JWT token
+        id: jwt
+        run: |
+          # Create JWT for Mozilla Add-ons API
+          IAT=$(date +%s)
+          EXP=$((IAT + 300))
+
+          # JWT Header
+          HEADER=$(echo -n '{"alg":"HS256","typ":"JWT"}' | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          # JWT Payload
+          PAYLOAD=$(echo -n "{\"iss\":\"${{ secrets.AMO_JWT_ISSUER }}\",\"jti\":\"$(uuidgen)\",\"iat\":${IAT},\"exp\":${EXP}}" | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          # JWT Signature
+          SIGNATURE=$(echo -n "${HEADER}.${PAYLOAD}" | openssl dgst -sha256 -hmac "${{ secrets.AMO_JWT_SECRET }}" -binary | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+
+          JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+          echo "token=${JWT}" >> $GITHUB_OUTPUT
+
+      - name: Upload extension to AMO
+        id: upload
+        run: |
+          CHANNEL="${{ github.event.inputs.channel || 'listed' }}"
+
+          RESPONSE=$(curl -s -X POST \
+            "https://addons.mozilla.org/api/v5/addons/upload/" \
+            -H "Authorization: JWT ${{ steps.jwt.outputs.token }}" \
+            -F "upload=@dist/zip/ai-blocker-firefox.zip" \
+            -F "channel=${CHANNEL}")
+
+          echo "Upload response: $RESPONSE"
+
+          UUID=$(echo "$RESPONSE" | jq -r '.uuid')
+          if [ "$UUID" = "null" ] || [ -z "$UUID" ]; then
+            echo "Error: Failed to get upload UUID"
+            echo "$RESPONSE" | jq .
+            exit 1
+          fi
+
+          echo "uuid=${UUID}" >> $GITHUB_OUTPUT
+
+      - name: Wait for validation
+        id: validate
+        run: |
+          UUID="${{ steps.upload.outputs.uuid }}"
+          MAX_ATTEMPTS=60
+          ATTEMPT=0
+
+          while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
+            # Regenerate JWT (they expire after 5 minutes)
+            IAT=$(date +%s)
+            EXP=$((IAT + 300))
+            HEADER=$(echo -n '{"alg":"HS256","typ":"JWT"}' | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+            PAYLOAD=$(echo -n "{\"iss\":\"${{ secrets.AMO_JWT_ISSUER }}\",\"jti\":\"$(uuidgen)\",\"iat\":${IAT},\"exp\":${EXP}}" | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+            SIGNATURE=$(echo -n "${HEADER}.${PAYLOAD}" | openssl dgst -sha256 -hmac "${{ secrets.AMO_JWT_SECRET }}" -binary | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+            JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+
+            RESPONSE=$(curl -s \
+              "https://addons.mozilla.org/api/v5/addons/upload/${UUID}/" \
+              -H "Authorization: JWT ${JWT}")
+
+            PROCESSED=$(echo "$RESPONSE" | jq -r '.processed')
+            VALID=$(echo "$RESPONSE" | jq -r '.valid')
+
+            echo "Attempt $((ATTEMPT + 1)): processed=$PROCESSED, valid=$VALID"
+
+            if [ "$PROCESSED" = "true" ]; then
+              if [ "$VALID" = "true" ]; then
+                echo "Validation successful!"
+                echo "valid=true" >> $GITHUB_OUTPUT
+                exit 0
+              else
+                echo "Validation failed!"
+                echo "$RESPONSE" | jq '.validation'
+                exit 1
+              fi
+            fi
+
+            ATTEMPT=$((ATTEMPT + 1))
+            sleep 10
+          done
+
+          echo "Validation timed out"
+          exit 1
+
+      - name: Create new version
+        if: steps.validate.outputs.valid == 'true'
+        run: |
+          UUID="${{ steps.upload.outputs.uuid }}"
+
+          # Regenerate JWT
+          IAT=$(date +%s)
+          EXP=$((IAT + 300))
+          HEADER=$(echo -n '{"alg":"HS256","typ":"JWT"}' | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+          PAYLOAD=$(echo -n "{\"iss\":\"${{ secrets.AMO_JWT_ISSUER }}\",\"jti\":\"$(uuidgen)\",\"iat\":${IAT},\"exp\":${EXP}}" | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+          SIGNATURE=$(echo -n "${HEADER}.${PAYLOAD}" | openssl dgst -sha256 -hmac "${{ secrets.AMO_JWT_SECRET }}" -binary | base64 -w 0 | tr '+/' '-_' | tr -d '=')
+          JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+
+          # Create new version for existing addon
+          RESPONSE=$(curl -s -X POST \
+            "https://addons.mozilla.org/api/v5/addons/addon/${{ env.ADDON_ID }}/versions/" \
+            -H "Authorization: JWT ${JWT}" \
+            -H "Content-Type: application/json" \
+            -d "{\"upload\": \"${UUID}\"}")
+
+          echo "Create version response:"
+          echo "$RESPONSE" | jq .
+
+          # Check for errors
+          ERROR=$(echo "$RESPONSE" | jq -r '.error // empty')
+          if [ -n "$ERROR" ]; then
+            echo "Error creating version: $ERROR"
+            exit 1
+          fi
+
+          VERSION=$(echo "$RESPONSE" | jq -r '.version')
+          echo "Successfully created version: $VERSION"

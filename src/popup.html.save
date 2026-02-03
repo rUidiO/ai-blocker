@@ -6,10 +6,9 @@
   <style>
     body {
       padding: 5px;
-      width: 300px;
-      box-sizing: border-box;
+      width: 280px;
       font-family: system-ui, sans-serif;
-      font-size: 16px;
+      font-size: 13px;
     }
     h3 {
       margin: 10px 0;
@@ -17,7 +16,7 @@
     }
     textarea {
       width: 100%;
-      aspect-ratio: 1900 / 1260;
+      aspect-ratio: 1896 / 1260;
       box-sizing: border-box;
       font-family: monospace;
       font-size: 12px;
@@ -37,7 +36,7 @@
       display: block;
       width: 100%;
       height: auto;
-      animation: flash 0.1s 10;
+      animation: 
     }
     .loading-icon.active + textarea {
       display: none;
@@ -137,7 +136,7 @@
   <label data-i18n="blockedWordsLabel">blocked words (one per line):</label>
   <div class="textarea-container">
     <div id="loadingIcon" class="loading-icon">
-      <img src="icons/loading.svg" alt="loading">
+      <img src="icons/icon-original.svg" alt="loading">
     </div>
     <textarea id="words" data-i18n-placeholder="placeholderWords" placeholder="add words to block"></textarea>
   </div>

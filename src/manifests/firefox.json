@@ -1,8 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "ai blocker",
+  "name": "AI blocker",
   "version": "1.0",
-  "description": "customizable ai blocking",
+  "description": "customizable ai blocking, made by ai",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ai-blocker@kiddokraft.org",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "permissions": [
     "activeTab",
     "storage",
@@ -21,29 +30,17 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icons/icon-light-16.png",
-      "32": "icons/icon-light-32.png",
-      "48": "icons/icon-light-48.png",
-      "128": "icons/icon-light-128.png"
-    },
-    "theme_icons": [
-      {
-        "light": "icons/icon-dark-16.png",
-        "dark": "icons/icon-light-16.png",
-        "size": 16
-      },
-      {
-        "light": "icons/icon-dark-32.png",
-        "dark": "icons/icon-light-32.png",
-        "size": 32
-      }
-    ]
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
   },
   "icons": {
-    "16": "icons/icon-light-16.png",
-    "32": "icons/icon-light-32.png",
-    "48": "icons/icon-light-48.png",
-    "128": "icons/icon-light-128.png"
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "web_accessible_resources": [
     "blocked-words.txt"

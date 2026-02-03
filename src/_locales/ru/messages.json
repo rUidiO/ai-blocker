@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "Блокировщик ИИ",
+    "description": "Название расширения"
+  },
+  "extensionDescription": {
+    "message": "блокирует контент об ИИ или другой контент с помощью настраиваемого списка слов, разработано и создано в kiddokraft.",
+    "description": "Описание расширения"
+  },
+  "toggleOn": {
+    "message": "вкл",
+    "description": "Состояние переключателя включено"
+  },
+  "toggleOff": {
+    "message": "выкл",
+    "description": "Состояние переключателя выключено"
+  },
+  "blockedWordsLabel": {
+    "message": "заблокированные слова (по одному в строке):",
+    "description": "Метка для текстовой области заблокированных слов"
+  },
+  "placeholderWords": {
+    "message": "добавить слова для блокировки",
+    "description": "Подсказка для текстовой области"
+  },
+  "tipWords": {
+    "message": "совет: добавьте слова chatgpt, openai, gemini и т.д.",
+    "description": "Совет для заблокированных слов"
+  },
+  "btnSave": {
+    "message": "сохранить",
+    "description": "Кнопка сохранить"
+  },
+  "btnRefresh": {
+    "message": "обновить",
+    "description": "Кнопка обновить"
+  },
+  "btnImport": {
+    "message": "импорт",
+    "description": "Кнопка импорт"
+  },
+  "btnExport": {
+    "message": "экспорт",
+    "description": "Кнопка экспорт"
+  },
+  "optionsTitle": {
+    "message": "настройки",
+    "description": "Заголовок раздела настроек"
+  },
+  "debugMode": {
+    "message": "режим отладки (выделять вместо скрытия)",
+    "description": "Опция режима отладки"
+  },
+  "semanticBlocking": {
+    "message": "семантическая блокировка (блокировать всю карточку)",
+    "description": "Опция семантической блокировки"
+  },
+  "matchCount": {
+    "message": "количество совпадений:",
+    "description": "Количество совпадений, необходимое для срабатывания блокировки"
+  },
+  "elementDepth": {
+    "message": "глубина элемента:",
+    "description": "Сколько уровней вверх проверять"
+  },
+  "footerText": {
+    "message": "разработано и создано в",
+    "description": "Текст нижнего колонтитула"
+  },
+  "statusSaved": {
+    "message": "сохранено $COUNT$ слов",
+    "description": "Статус сохранено",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "ошибка сохранения",
+    "description": "Статус ошибки сохранения"
+  },
+  "statusRefreshed": {
+    "message": "страница обновлена",
+    "description": "Статус обновления страницы"
+  },
+  "statusErrorRefreshing": {
+    "message": "ошибка обновления",
+    "description": "Статус ошибки обновления"
+  },
+  "statusExported": {
+    "message": "экспортировано",
+    "description": "Статус экспортировано"
+  },
+  "statusErrorImporting": {
+    "message": "ошибка импорта",
+    "description": "Статус ошибки импорта"
+  },
+  "statusImported": {
+    "message": "импортировано",
+    "description": "Статус импортировано"
+  }
+}

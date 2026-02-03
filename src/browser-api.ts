@@ -11,9 +11,14 @@ declare const chrome: {
 const getBrowserType = (): "firefox" | "chrome" | "safari" => {
   if (typeof browser !== "undefined" && browser.runtime?.id) {
     // Check if Safari (Safari has browser.* but with some quirks)
-    const ua = navigator.userAgent;
-    if (ua.includes("Safari") && !ua.includes("Chrome")) {
-      return "safari";
+    // Use try-catch because navigator may not be available in service workers
+    try {
+      const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+      if (ua.includes("Safari") && !ua.includes("Chrome")) {
+        return "safari";
+      }
+    } catch {
+      // Ignore - not Safari
     }
     return "firefox";
   }
@@ -150,6 +155,24 @@ export const action = {
   },
 };
 
+// i18n API wrapper
+export const i18n = {
+  getMessage(messageName: string, substitutions?: string | string[]): string {
+    try {
+      return api.i18n.getMessage(messageName, substitutions) || "";
+    } catch {
+      return "";
+    }
+  },
+  getUILanguage(): string {
+    try {
+      return api.i18n.getUILanguage();
+    } catch {
+      return "en";
+    }
+  },
+};
+
 // Tabs API wrapper
 export const tabs = {
   query(queryInfo: browser.tabs.QueryQueryInfoType): Promise<browser.tabs.Tab[]> {
@@ -192,5 +215,6 @@ export default {
   runtime,
   action,
   tabs,
+  i18n,
   browserType,
 };

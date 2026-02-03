@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "Bloqueador IA",
+    "description": "Nome da extensão"
+  },
+  "extensionDescription": {
+    "message": "bloqueia conteúdo sobre IA ou qualquer coisa com uma lista de palavras personalizável, projetado e desenvolvido na kiddokraft.",
+    "description": "Descrição da extensão"
+  },
+  "toggleOn": {
+    "message": "ligado",
+    "description": "Estado do interruptor ligado"
+  },
+  "toggleOff": {
+    "message": "desligado",
+    "description": "Estado do interruptor desligado"
+  },
+  "blockedWordsLabel": {
+    "message": "palavras bloqueadas (uma por linha):",
+    "description": "Rótulo para a área de texto de palavras bloqueadas"
+  },
+  "placeholderWords": {
+    "message": "adicionar palavras para bloquear",
+    "description": "Texto de exemplo para a área de texto"
+  },
+  "tipWords": {
+    "message": "dica: adicione palavras como chatgpt, openai, gemini, etc.",
+    "description": "Dica para palavras bloqueadas"
+  },
+  "btnSave": {
+    "message": "salvar",
+    "description": "Botão salvar"
+  },
+  "btnRefresh": {
+    "message": "atualizar",
+    "description": "Botão atualizar"
+  },
+  "btnImport": {
+    "message": "importar",
+    "description": "Botão importar"
+  },
+  "btnExport": {
+    "message": "exportar",
+    "description": "Botão exportar"
+  },
+  "optionsTitle": {
+    "message": "opções",
+    "description": "Título da seção de opções"
+  },
+  "debugMode": {
+    "message": "modo depuração (destacar em vez de ocultar)",
+    "description": "Opção de modo depuração"
+  },
+  "semanticBlocking": {
+    "message": "bloqueio semântico (bloquear cartão inteiro)",
+    "description": "Opção de bloqueio semântico"
+  },
+  "matchCount": {
+    "message": "quantidade de correspondências:",
+    "description": "Número de correspondências necessárias para acionar o bloqueio"
+  },
+  "elementDepth": {
+    "message": "profundidade do elemento:",
+    "description": "Quantos níveis acima verificar"
+  },
+  "footerText": {
+    "message": "projetado e desenvolvido em",
+    "description": "Texto do rodapé"
+  },
+  "statusSaved": {
+    "message": "$COUNT$ palavras salvas",
+    "description": "Status salvo",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "erro ao salvar",
+    "description": "Status de erro ao salvar"
+  },
+  "statusRefreshed": {
+    "message": "página atualizada",
+    "description": "Status de página atualizada"
+  },
+  "statusErrorRefreshing": {
+    "message": "erro ao atualizar",
+    "description": "Status de erro ao atualizar"
+  },
+  "statusExported": {
+    "message": "exportado",
+    "description": "Status exportado"
+  },
+  "statusErrorImporting": {
+    "message": "erro ao importar",
+    "description": "Status de erro ao importar"
+  },
+  "statusImported": {
+    "message": "importado",
+    "description": "Status importado"
+  }
+}

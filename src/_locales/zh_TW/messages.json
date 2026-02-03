@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "AI 封鎖器",
+    "description": "擴充功能名稱"
+  },
+  "extensionDescription": {
+    "message": "透過可自訂的詞彙列表封鎖 AI 或任何相關內容，由 kiddokraft 設計和開發。",
+    "description": "擴充功能描述"
+  },
+  "toggleOn": {
+    "message": "開",
+    "description": "切換狀態開啟"
+  },
+  "toggleOff": {
+    "message": "關",
+    "description": "切換狀態關閉"
+  },
+  "blockedWordsLabel": {
+    "message": "封鎖詞彙（每行一個）：",
+    "description": "封鎖詞彙文字區塊標籤"
+  },
+  "placeholderWords": {
+    "message": "新增要封鎖的詞彙",
+    "description": "文字區塊佔位符"
+  },
+  "tipWords": {
+    "message": "提示：新增如 chatgpt、openai、gemini 等詞彙。",
+    "description": "封鎖詞彙提示"
+  },
+  "btnSave": {
+    "message": "儲存",
+    "description": "儲存按鈕"
+  },
+  "btnRefresh": {
+    "message": "重新整理",
+    "description": "重新整理按鈕"
+  },
+  "btnImport": {
+    "message": "匯入",
+    "description": "匯入按鈕"
+  },
+  "btnExport": {
+    "message": "匯出",
+    "description": "匯出按鈕"
+  },
+  "optionsTitle": {
+    "message": "選項",
+    "description": "選項區塊標題"
+  },
+  "debugMode": {
+    "message": "除錯模式（標示而非隱藏）",
+    "description": "除錯模式選項"
+  },
+  "semanticBlocking": {
+    "message": "語意封鎖（封鎖整個卡片）",
+    "description": "語意封鎖選項"
+  },
+  "matchCount": {
+    "message": "符合數量：",
+    "description": "觸發封鎖所需的符合數量"
+  },
+  "elementDepth": {
+    "message": "元素深度：",
+    "description": "向上檢查多少層級"
+  },
+  "footerText": {
+    "message": "設計開發於",
+    "description": "頁尾文字"
+  },
+  "statusSaved": {
+    "message": "已儲存 $COUNT$ 個詞彙",
+    "description": "已儲存狀態",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "儲存失敗",
+    "description": "儲存錯誤狀態"
+  },
+  "statusRefreshed": {
+    "message": "頁面已重新整理",
+    "description": "頁面已重新整理狀態"
+  },
+  "statusErrorRefreshing": {
+    "message": "重新整理失敗",
+    "description": "重新整理錯誤狀態"
+  },
+  "statusExported": {
+    "message": "已匯出",
+    "description": "已匯出狀態"
+  },
+  "statusImported": {
+    "message": "已匯入",
+    "description": "已匯入狀態"
+  },
+  "statusErrorImporting": {
+    "message": "匯入失敗",
+    "description": "匯入錯誤狀態"
+  }
+}

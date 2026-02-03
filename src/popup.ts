@@ -1,12 +1,9 @@
-import { storage, runtime, tabs } from "./browser-api";
+import { storage, runtime, tabs, i18n } from "./browser-api";
 import type { SettingsResponse, Settings } from "./types";
 
 const wordsTextarea = document.getElementById("words") as HTMLTextAreaElement;
 const saveButton = document.getElementById("save") as HTMLButtonElement;
 const refreshButton = document.getElementById("refresh") as HTMLButtonElement;
-const importButton = document.getElementById("import") as HTMLButtonElement;
-const exportButton = document.getElementById("export") as HTMLButtonElement;
-const importFile = document.getElementById("importFile") as HTMLInputElement;
 const statusDiv = document.getElementById("status") as HTMLDivElement;
 const debugModeToggle = document.getElementById("debugMode") as HTMLInputElement;
 const semanticBlockingToggle = document.getElementById("semanticBlocking") as HTMLInputElement;
@@ -14,6 +11,28 @@ const semanticThresholdInput = document.getElementById("semanticThreshold") as H
 const semanticLayerInput = document.getElementById("semanticLayer") as HTMLInputElement;
 const enableToggle = document.getElementById("enableToggle") as HTMLInputElement;
 const toggleStatus = document.getElementById("toggleStatus") as HTMLSpanElement;
+const loadingIcon = document.getElementById("loadingIcon") as HTMLDivElement;
+
+// Initialize i18n
+function initI18n(): void {
+  // Translate elements with data-i18n attribute
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (key) {
+      const message = i18n.getMessage(key);
+      if (message) el.textContent = message;
+    }
+  });
+
+  // Translate placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (key) {
+      const message = i18n.getMessage(key);
+      if (message) (el as HTMLInputElement | HTMLTextAreaElement).placeholder = message;
+    }
+  });
+}
 
 async function loadWords(): Promise<void> {
   try {
@@ -26,7 +45,10 @@ async function loadWords(): Promise<void> {
 }
 
 function updateToggleStatus(enabled: boolean): void {
-  toggleStatus.textContent = enabled ? "on" : "off";
+  const onKey = toggleStatus.getAttribute("data-i18n-on") || "toggleOn";
+  const offKey = toggleStatus.getAttribute("data-i18n-off") || "toggleOff";
+  const message = i18n.getMessage(enabled ? onKey : offKey);
+  toggleStatus.textContent = message || (enabled ? "on" : "off");
 }
 
 async function loadSettings(): Promise<void> {
@@ -59,12 +81,29 @@ async function loadSettings(): Promise<void> {
   }
 }
 
-function showStatus(message: string, isError = false): void {
+function showStatus(messageKey: string, isError = false, substitutions?: string[]): void {
+  const message = i18n.getMessage(messageKey, substitutions) || messageKey;
   statusDiv.textContent = message;
   statusDiv.className = isError ? "error" : "";
   setTimeout(() => {
     statusDiv.textContent = "";
   }, 2000);
+}
+
+let loadingStartTime = 0;
+
+function showLoading(): void {
+  loadingStartTime = Date.now();
+  loadingIcon.classList.add("active");
+}
+
+async function hideLoading(): Promise<void> {
+  const elapsed = Date.now() - loadingStartTime;
+  const minDuration = 1000;
+  if (elapsed < minDuration) {
+    await new Promise(resolve => setTimeout(resolve, minDuration - elapsed));
+  }
+  loadingIcon.classList.remove("active");
 }
 
 async function saveSettings(): Promise<void> {
@@ -95,6 +134,7 @@ saveButton.addEventListener("click", async () => {
     .map((word) => word.trim().toLowerCase())
     .filter((word) => word.length > 0);
 
+  showLoading();
   try {
     await storage.local.set({ blockedWords: words });
     try {
@@ -103,10 +143,12 @@ saveButton.addEventListener("click", async () => {
       // Ignore message error
     }
     await saveSettings();
-    showStatus(`Saved ${words.length} words`);
+    showStatus("statusSaved", false, [words.length.toString()]);
   } catch (error) {
-    showStatus("Error saving", true);
+    showStatus("statusErrorSaving", true);
     console.error("Error saving:", error);
+  } finally {
+    hideLoading();
   }
 });
 
@@ -129,43 +171,23 @@ semanticThresholdInput.addEventListener("change", saveSettings);
 semanticLayerInput.addEventListener("change", saveSettings);
 
 refreshButton.addEventListener("click", async () => {
+  showLoading();
   try {
     await saveSettings();
     const tabList = await tabs.query({ active: true, currentWindow: true });
     if (tabList[0]?.id) {
       await tabs.sendMessage(tabList[0].id, { action: "refresh" });
-      showStatus("Page refreshed");
+      showStatus("statusRefreshed");
     }
   } catch (error) {
-    showStatus("Error refreshing", true);
+    showStatus("statusErrorRefreshing", true);
     console.error("Error refreshing:", error);
+  } finally {
+    hideLoading();
   }
 });
 
-importButton.addEventListener("click", () => {
-  importFile.click();
-});
-
-exportButton.addEventListener("click", () => {
-  const text = wordsTextarea.value;
-  const dataUrl = "data:text/plain;charset=utf-8," + encodeURIComponent(text);
-  const a = document.createElement("a");
-  a.href = dataUrl;
-  a.download = `blocked-words-${new Date().toISOString().slice(0, 10)}.txt`;
-  a.click();
-  showStatus("Exported");
-});
-
-importFile.addEventListener("change", async (e) => {
-  const file = (e.target as HTMLInputElement).files?.[0];
-  if (!file) return;
-
-  const text = await file.text();
-  wordsTextarea.value = text;
-  showStatus("Imported");
-  importFile.value = "";
-});
-
-// Load on popup open
+// Initialize
+initI18n();
 loadWords();
 loadSettings();

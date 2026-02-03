@@ -6,6 +6,12 @@ import { $ } from "bun";
 const srcDir = "./src";
 const distDir = "./dist";
 
+// Read package.json for name, version, and description (single source of truth)
+const packageJson = await Bun.file("./package.json").json();
+const extensionName = "ai blocker";
+const extensionVersion = packageJson.version;
+const extensionDescription = packageJson.description;
+
 type Browser = "firefox" | "chrome" | "safari";
 
 const browsers: Browser[] = ["firefox", "chrome", "safari"];
@@ -14,24 +20,9 @@ const iconSizes = [16, 32, 48, 128];
 // Safari build config
 const safariConfig = {
   bundleIdentifier: "org.kiddokraft.ai-blocker",
-  appName: "ai blocker",
-  projectLocation: "./ai blocker",
+  appName: extensionName,
+  projectLocation: "./apple",
 };
-
-// Invert a hex color
-function invertColor(hex: string): string {
-  const r = 255 - parseInt(hex.slice(1, 3), 16);
-  const g = 255 - parseInt(hex.slice(3, 5), 16);
-  const b = 255 - parseInt(hex.slice(5, 7), 16);
-  return `#${r.toString(16).padStart(2, "0").toUpperCase()}${g.toString(16).padStart(2, "0").toUpperCase()}${b.toString(16).padStart(2, "0").toUpperCase()}`;
-}
-
-// Generate dark mode SVG by inverting colors
-function invertSvgColors(svg: string): string {
-  return svg.replace(/fill="#([0-9A-Fa-f]{6})"/g, (match, hex) => {
-    return `fill="${invertColor("#" + hex)}"`;
-  });
-}
 
 // Wrap flag SVG in a square viewBox, centered vertically
 function makeSquareSvg(svg: string): string {
@@ -65,6 +56,19 @@ async function generateSafariXcodeProject() {
     await $`xcrun safari-web-extension-converter ${extensionPath} --project-location ${projectLocation} --app-name ${appName} --bundle-identifier ${bundleIdentifier} --swift --no-prompt --no-open --copy-resources`;
     console.log(`  → Xcode project generated at ${projectLocation}`);
     console.log(`  → Bundle identifier: ${bundleIdentifier}`);
+
+    // Convert loading icon to full-size PNG for Shared (App)/Resources
+    const resourcesDir = join(projectLocation, appName, "Shared (App)", "Resources");
+    const srcIconPath = join(srcDir, "icons", "loading.svg");
+    await $`rsvg-convert ${srcIconPath} -o ${join(resourcesDir, "Icon.png")}`;
+    console.log(`  → Created Icon.png at full size in Shared (App)/Resources`);
+
+    // Post-process Main.html to use PNG icon displayed at 190x126
+    const mainHtmlPath = join(projectLocation, appName, "Shared (App)", "Resources", "Base.lproj", "Main.html");
+    let mainHtml = await readFile(mainHtmlPath, "utf-8");
+    mainHtml = mainHtml.replace(/<img[^>]*>/, '<img src="../Icon.png" width="190" height="126" alt="Icon">');
+    await writeFile(mainHtmlPath, mainHtml);
+    console.log(`  → Updated Main.html to use Icon.png at 190x126`);
   } catch (error) {
     console.error(`  → Failed to generate Xcode project:`, error);
   }
@@ -97,33 +101,33 @@ async function generateStoreAssets() {
   const promoSvg = `<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
   <rect width="1280" height="800" fill="#1a1a2e"/>
   <g transform="translate(440, 200)">
-    <rect width="400" height="277" rx="8" fill="#00A3FF"/>
+    <rect width="400" height="277" fill="#00A3FF"/>
     <rect y="168" width="400" height="109" fill="#8BD450"/>
   </g>
-  <text x="640" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="64" font-weight="bold" fill="white">ai blocker</text>
-  <text x="640" y="620" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#888">customizable ai blocking</text>
+  <text x="640" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white">${extensionName}</text>
+  <text x="640" y="620" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#888">${extensionDescription}</text>
 </svg>`;
 
   // Small tile (440x280 for Chrome)
   const smallTileSvg = `<svg width="440" height="280" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
   <rect width="440" height="280" fill="#1a1a2e"/>
   <g transform="translate(145, 40)">
-    <rect width="150" height="104" rx="4" fill="#00A3FF"/>
+    <rect width="150" height="104" fill="#00A3FF"/>
     <rect y="63" width="150" height="41" fill="#8BD450"/>
   </g>
-  <text x="220" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" font-weight="bold" fill="white">ai blocker</text>
-  <text x="220" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#888">customizable ai blocking</text>
+  <text x="220" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="white">${extensionName}</text>
+  <text x="220" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#888">${extensionDescription}</text>
 </svg>`;
 
   // Marquee (1400x560 for Chrome)
   const marqueeSvg = `<svg width="1400" height="560" viewBox="0 0 1400 560" xmlns="http://www.w3.org/2000/svg">
   <rect width="1400" height="560" fill="#1a1a2e"/>
   <g transform="translate(100, 130)">
-    <rect width="300" height="208" rx="8" fill="#00A3FF"/>
+    <rect width="300" height="208" fill="#00A3FF"/>
     <rect y="126" width="300" height="82" fill="#8BD450"/>
   </g>
-  <text x="850" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="bold" fill="white">ai blocker</text>
-  <text x="850" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" fill="#888">customizable ai blocking</text>
+  <text x="850" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="bold" fill="white">${extensionName}</text>
+  <text x="850" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="32" fill="#888">${extensionDescription}</text>
 </svg>`;
 
   // Write SVGs and convert to PNG
@@ -142,22 +146,25 @@ async function generateIcons(outDir: string) {
   const iconsDir = join(outDir, "icons");
   await mkdir(iconsDir, { recursive: true });
 
-  // Read source SVG and make it square
+  // Read source SVG and make it square for toolbar
   const svgPath = join(srcDir, "icons", "icon.svg");
   const originalSvg = await readFile(svgPath, "utf-8");
-  const lightSvg = makeSquareSvg(originalSvg);
-  const darkSvg = invertSvgColors(lightSvg);
+  const squareSvg = makeSquareSvg(originalSvg);
 
-  // Write SVG files
-  const lightSvgPath = join(iconsDir, "icon-light.svg");
-  const darkSvgPath = join(iconsDir, "icon-dark.svg");
-  await writeFile(lightSvgPath, lightSvg);
-  await writeFile(darkSvgPath, darkSvg);
+  // Write square SVG for toolbar icons
+  const squareSvgPath = join(iconsDir, "icon.svg");
+  await writeFile(squareSvgPath, squareSvg);
+
+  // Copy original SVG for popup loading icon
+  const originalSvgPath = join(iconsDir, "icon-original.svg");
+  await writeFile(originalSvgPath, originalSvg);
+
+  // Copy loading.svg for popup
+  await cp(join(srcDir, "icons", "loading.svg"), join(iconsDir, "loading.svg"));
 
   // Generate square PNGs using rsvg-convert
   for (const size of iconSizes) {
-    await $`rsvg-convert -w ${size} -h ${size} ${lightSvgPath} -o ${join(iconsDir, `icon-light-${size}.png`)}`;
-    await $`rsvg-convert -w ${size} -h ${size} ${darkSvgPath} -o ${join(iconsDir, `icon-dark-${size}.png`)}`;
+    await $`rsvg-convert -w ${size} -h ${size} ${squareSvgPath} -o ${join(iconsDir, `icon-${size}.png`)}`;
   }
 }
 
@@ -191,11 +198,22 @@ async function buildForBrowser(browser: Browser) {
     return false;
   }
 
-  // Copy manifest for this browser
-  await cp(
-    join(srcDir, "manifests", `${browser}.json`),
-    join(outDir, "manifest.json")
-  );
+  // Copy manifest for this browser and configure i18n
+  const manifestPath = join(outDir, "manifest.json");
+  const manifest = JSON.parse(await readFile(join(srcDir, "manifests", `${browser}.json`), "utf-8"));
+  manifest.name = "__MSG_extensionName__";
+  manifest.description = "__MSG_extensionDescription__";
+  manifest.version = extensionVersion;
+  manifest.default_locale = "en";
+  await writeFile(manifestPath, JSON.stringify(manifest, null, 2));
+
+  // Copy _locales folder and update en/messages.json with package.json values
+  await cp(join(srcDir, "_locales"), join(outDir, "_locales"), { recursive: true });
+  const enMessagesPath = join(outDir, "_locales", "en", "messages.json");
+  const enMessages = JSON.parse(await readFile(enMessagesPath, "utf-8"));
+  enMessages.extensionName.message = extensionName;
+  enMessages.extensionDescription.message = extensionDescription;
+  await writeFile(enMessagesPath, JSON.stringify(enMessages, null, 2));
 
   // Copy static files
   await cp(join(srcDir, "popup.html"), join(outDir, "popup.html"));
@@ -214,7 +232,7 @@ async function buildForBrowser(browser: Browser) {
 }
 
 async function build() {
-  console.log("building ai blocker extension...\n");
+  console.log(`building ${extensionName} extension...\n`);
 
   const browsersToBuild = skipSafari ? browsers.filter(b => b !== "safari") : browsers;
 
@@ -243,7 +261,7 @@ async function build() {
     console.log("  firefox: about:debugging → load temporary add-on → dist/firefox/manifest.json");
     console.log("  chrome:  chrome://extensions → developer mode → load unpacked → dist/chrome/");
     if (!skipSafari) {
-      console.log("  safari:  open 'ai blocker/ai blocker/ai blocker.xcodeproj' in xcode and build");
+      console.log(`  safari:  open 'ai blocker/${extensionName}/${extensionName}.xcodeproj' in xcode and build`);
     }
     console.log("\nstore submission:");
     console.log("  firefox: upload dist/zip/ai-blocker-firefox.zip to addons.mozilla.org");

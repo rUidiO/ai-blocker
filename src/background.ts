@@ -65,12 +65,23 @@ function updateIcon(isDark: boolean) {
 function setupIconThemeListener() {
   if (browserApi.browserType !== "chrome") return;
 
-  const mediaQuery = self.matchMedia("(prefers-color-scheme: dark)");
-  updateIcon(mediaQuery.matches);
-
-  mediaQuery.addEventListener("change", (e) => {
-    updateIcon(e.matches);
-  });
+  // matchMedia is not available in service workers (Manifest V3)
+  // Use a default icon instead - Chrome will handle theme automatically via manifest icons
+  try {
+    if (typeof matchMedia !== "undefined") {
+      const mediaQuery = matchMedia("(prefers-color-scheme: dark)");
+      updateIcon(mediaQuery.matches);
+      mediaQuery.addEventListener("change", (e) => {
+        updateIcon(e.matches);
+      });
+    } else {
+      // Default to light icons in service worker context
+      updateIcon(false);
+    }
+  } catch {
+    // Service worker - use default icon
+    updateIcon(false);
+  }
 }
 
 // Initialize words and settings on extension startup
