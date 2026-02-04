@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "KI-Blocker",
+    "description": "Name der Erweiterung"
+  },
+  "extensionDescription": {
+    "message": "blockiert Inhalte über KI oder anderes mit einer anpassbaren Wortliste, entworfen und entwickelt bei kiddokraft.",
+    "description": "Beschreibung der Erweiterung"
+  },
+  "toggleOn": {
+    "message": "ein",
+    "description": "Umschaltstatus ein"
+  },
+  "toggleOff": {
+    "message": "aus",
+    "description": "Umschaltstatus aus"
+  },
+  "blockedWordsLabel": {
+    "message": "blockierte Wörter (eines pro Zeile):",
+    "description": "Beschriftung für das Textfeld der blockierten Wörter"
+  },
+  "placeholderWords": {
+    "message": "Wörter zum Blockieren hinzufügen",
+    "description": "Platzhalter für das Textfeld"
+  },
+  "tipWords": {
+    "message": "Tipp: Füge Wörter wie chatgpt, openai, gemini usw. hinzu.",
+    "description": "Tipp für blockierte Wörter"
+  },
+  "btnSave": {
+    "message": "speichern",
+    "description": "Speichern-Schaltfläche"
+  },
+  "btnRefresh": {
+    "message": "aktualisieren",
+    "description": "Aktualisieren-Schaltfläche"
+  },
+  "btnImport": {
+    "message": "importieren",
+    "description": "Importieren-Schaltfläche"
+  },
+  "btnExport": {
+    "message": "exportieren",
+    "description": "Exportieren-Schaltfläche"
+  },
+  "optionsTitle": {
+    "message": "optionen",
+    "description": "Titel des Optionsbereichs"
+  },
+  "debugMode": {
+    "message": "Debug-Modus (hervorheben statt ausblenden)",
+    "description": "Debug-Modus-Option"
+  },
+  "semanticBlocking": {
+    "message": "Semantisches Blockieren (gesamte Karte blockieren)",
+    "description": "Option für semantisches Blockieren"
+  },
+  "matchCount": {
+    "message": "Anzahl der Treffer:",
+    "description": "Anzahl der erforderlichen Übereinstimmungen zum Auslösen der Blockierung"
+  },
+  "elementDepth": {
+    "message": "Elementtiefe:",
+    "description": "Wie viele Ebenen nach oben geprüft werden"
+  },
+  "footerText": {
+    "message": "entworfen und entwickelt bei",
+    "description": "Fußzeilentext"
+  },
+  "statusSaved": {
+    "message": "$COUNT$ Wörter gespeichert",
+    "description": "Status gespeichert",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "Fehler beim Speichern",
+    "description": "Fehler beim Speichern Status"
+  },
+  "statusRefreshed": {
+    "message": "Seite aktualisiert",
+    "description": "Seite aktualisiert Status"
+  },
+  "statusErrorRefreshing": {
+    "message": "Fehler beim Aktualisieren",
+    "description": "Fehler beim Aktualisieren Status"
+  },
+  "statusExported": {
+    "message": "exportiert",
+    "description": "Exportiert Status"
+  },
+  "statusErrorImporting": {
+    "message": "Fehler beim Importieren",
+    "description": "Fehler beim Importieren Status"
+  },
+  "statusImported": {
+    "message": "importiert",
+    "description": "Importiert Status"
+  }
+}

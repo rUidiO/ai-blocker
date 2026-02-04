@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "Bloqueur IA",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "bloque le contenu sur l'IA ou autre grâce à une liste de mots personnalisable, conçu et développé chez kiddokraft.",
+    "description": "Description de l'extension"
+  },
+  "toggleOn": {
+    "message": "activé",
+    "description": "État du commutateur activé"
+  },
+  "toggleOff": {
+    "message": "désactivé",
+    "description": "État du commutateur désactivé"
+  },
+  "blockedWordsLabel": {
+    "message": "mots bloqués (un par ligne) :",
+    "description": "Libellé pour la zone de texte des mots bloqués"
+  },
+  "placeholderWords": {
+    "message": "ajouter des mots à bloquer",
+    "description": "Texte indicatif pour la zone de texte"
+  },
+  "tipWords": {
+    "message": "astuce : ajoutez des mots comme chatgpt, openai, gemini, etc.",
+    "description": "Astuce pour les mots bloqués"
+  },
+  "btnSave": {
+    "message": "enregistrer",
+    "description": "Bouton enregistrer"
+  },
+  "btnRefresh": {
+    "message": "actualiser",
+    "description": "Bouton actualiser"
+  },
+  "btnImport": {
+    "message": "importer",
+    "description": "Bouton importer"
+  },
+  "btnExport": {
+    "message": "exporter",
+    "description": "Bouton exporter"
+  },
+  "optionsTitle": {
+    "message": "options",
+    "description": "Titre de la section options"
+  },
+  "debugMode": {
+    "message": "mode débogage (surligner au lieu de masquer)",
+    "description": "Option du mode débogage"
+  },
+  "semanticBlocking": {
+    "message": "blocage sémantique (bloquer la carte entière)",
+    "description": "Option de blocage sémantique"
+  },
+  "matchCount": {
+    "message": "nombre de correspondances :",
+    "description": "Nombre de correspondances requises pour déclencher le blocage"
+  },
+  "elementDepth": {
+    "message": "profondeur de l'élément :",
+    "description": "Combien de niveaux à remonter"
+  },
+  "footerText": {
+    "message": "conçu et développé à",
+    "description": "Texte du pied de page"
+  },
+  "statusSaved": {
+    "message": "$COUNT$ mots enregistrés",
+    "description": "État enregistré",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "erreur d'enregistrement",
+    "description": "État d'erreur d'enregistrement"
+  },
+  "statusRefreshed": {
+    "message": "page actualisée",
+    "description": "État de page actualisée"
+  },
+  "statusErrorRefreshing": {
+    "message": "erreur d'actualisation",
+    "description": "État d'erreur d'actualisation"
+  },
+  "statusExported": {
+    "message": "exporté",
+    "description": "État exporté"
+  },
+  "statusErrorImporting": {
+    "message": "erreur d'importation",
+    "description": "État d'erreur d'importation"
+  },
+  "statusImported": {
+    "message": "importé",
+    "description": "État importé"
+  }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 5px;
+      width: 300px;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+      font-size: 16px;
+    }
+    h3 {
+      margin: 10px 0;
+      font-size: 14px;
+    }
+    textarea {
+      width: 100%;
+      aspect-ratio: 1900 / 1260;
+      box-sizing: border-box;
+      font-family: monospace;
+      font-size: 12px;
+      resize: none;
+    }
+    .textarea-container {
+      position: relative;
+      width: 100%;
+    }
+    .loading-icon {
+      display: none;
+    }
+    .loading-icon.active {
+      display: block;
+    }
+    .loading-icon img {
+      display: block;
+      width: 100%;
+      height: auto;
+      animation: flash 0.1s 10;
+    }
+    .loading-icon.active + textarea {
+      display: none;
+    }
+    @keyframes flash {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+    input[type="number"] {
+      width: 50px;
+    }
+    .row {
+      display: flex;
+      gap: 5px;
+      margin-top: 8px;
+    }
+    button {
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: green;
+    }
+    #status.error {
+      color: red;
+    }
+    details {
+      margin-top: 10px;
+    }
+    summary {
+      cursor: pointer;
+    }
+    footer, span {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+    footer svg {
+      width: 1.2em;
+      height: 1.2em;
+      padding: 0.5em;
+      vertical-align: middle;
+    }
+    footer a {
+      color: #888;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #1a1a1a;
+        color: #e0e0e0;
+      }
+      textarea, input[type="number"] {
+        background: #2a2a2a;
+        color: #e0e0e0;
+        border: 1px solid #444;
+      }
+      button {
+        background: #333;
+        color: #e0e0e0;
+        border: 1px solid #444;
+      }
+      button:hover {
+        background: #444;
+      }
+      summary {
+        color: #e0e0e0;
+      }
+      footer, span {
+        color: #777;
+      }
+      footer a {
+        color: #888;
+      }
+      #status {
+        color: #4caf50;
+      }
+      #status.error {
+        color: #f44336;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <label>
+    <input type="checkbox" id="enableToggle" checked>
+    <span id="toggleStatus" data-i18n-on="toggleOn" data-i18n-off="toggleOff">on</span>
+  </label>
+
+  <label data-i18n="blockedWordsLabel">blocked words (one per line):</label>
+  <div class="textarea-container">
+    <div id="loadingIcon" class="loading-icon">
+      <img src="icons/loading.svg" alt="loading">
+    </div>
+    <textarea id="words" data-i18n-placeholder="placeholderWords" placeholder="add words to block"></textarea>
+  </div>
+  <span data-i18n="tipWords">tip: add words like chatgpt, openai, gemini, etc.</span>
+
+  <div class="row">
+    <button id="save" data-i18n="btnSave">save</button>
+    <button id="refresh" data-i18n="btnRefresh">refresh</button>
+  </div>
+
+  <details>
+    <summary data-i18n="optionsTitle">options</summary>
+    <label>
+      <input type="checkbox" id="debugMode">
+      <span data-i18n="debugMode">debug mode (highlight instead of hide)</span>
+    </label>
+    <label>
+      <input type="checkbox" id="semanticBlocking" checked>
+      <span data-i18n="semanticBlocking">semantic blocking (block entire card)</span>
+    </label>
+    <label>
+      <span data-i18n="matchCount">match count:</span>
+      <input type="number" id="semanticThreshold" min="2" max="10" value="3">
+    </label>
+    <label>
+      <span data-i18n="elementDepth">element depth:</span>
+      <input type="number" id="semanticLayer" min="1" max="10" value="1">
+    </label>
+  </details>
+
+  <footer>
+  <svg width="1em" height="1em" viewBox="0 0 350 243" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect y="0.46875" width="350" height="242.019" fill="#00A3FF"/>
+              <rect y="147.359" width="350" height="95.13" fill="#8BD450"/>
+              </svg>
+
+  <span data-i18n="footerText">design and developed at</span> <a href="https://kiddokraft.org">kiddokraft.org</a>
+  </footer>
+
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

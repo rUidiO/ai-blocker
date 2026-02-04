@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "AI 屏蔽器",
+    "description": "扩展名称"
+  },
+  "extensionDescription": {
+    "message": "通过可自定义的词汇列表屏蔽 AI 或任何相关内容，由 kiddokraft 设计和开发。",
+    "description": "扩展描述"
+  },
+  "toggleOn": {
+    "message": "开",
+    "description": "开关状态开启"
+  },
+  "toggleOff": {
+    "message": "关",
+    "description": "开关状态关闭"
+  },
+  "blockedWordsLabel": {
+    "message": "屏蔽词汇（每行一个）：",
+    "description": "屏蔽词汇文本框标签"
+  },
+  "placeholderWords": {
+    "message": "添加要屏蔽的词汇",
+    "description": "文本框占位符"
+  },
+  "tipWords": {
+    "message": "提示：添加如 chatgpt、openai、gemini 等词汇。",
+    "description": "屏蔽词汇提示"
+  },
+  "btnSave": {
+    "message": "保存",
+    "description": "保存按钮"
+  },
+  "btnRefresh": {
+    "message": "刷新",
+    "description": "刷新按钮"
+  },
+  "btnImport": {
+    "message": "导入",
+    "description": "导入按钮"
+  },
+  "btnExport": {
+    "message": "导出",
+    "description": "导出按钮"
+  },
+  "optionsTitle": {
+    "message": "选项",
+    "description": "选项部分标题"
+  },
+  "debugMode": {
+    "message": "调试模式（高亮而非隐藏）",
+    "description": "调试模式选项"
+  },
+  "semanticBlocking": {
+    "message": "语义屏蔽（屏蔽整个卡片）",
+    "description": "语义屏蔽选项"
+  },
+  "matchCount": {
+    "message": "匹配数量：",
+    "description": "触发屏蔽所需的匹配数量"
+  },
+  "elementDepth": {
+    "message": "元素深度：",
+    "description": "向上检查多少层级"
+  },
+  "footerText": {
+    "message": "设计开发于",
+    "description": "页脚文本"
+  },
+  "statusSaved": {
+    "message": "已保存 $COUNT$ 个词汇",
+    "description": "已保存状态",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "保存失败",
+    "description": "保存错误状态"
+  },
+  "statusRefreshed": {
+    "message": "页面已刷新",
+    "description": "页面已刷新状态"
+  },
+  "statusErrorRefreshing": {
+    "message": "刷新失败",
+    "description": "刷新错误状态"
+  },
+  "statusExported": {
+    "message": "已导出",
+    "description": "已导出状态"
+  },
+  "statusImported": {
+    "message": "已导入",
+    "description": "已导入状态"
+  },
+  "statusErrorImporting": {
+    "message": "导入失败",
+    "description": "导入错误状态"
+  }
+}

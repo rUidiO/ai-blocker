@@ -1,6 +1,6 @@
 {
   "name": "ai-content-blocker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "blocks content about ai or anything by a customizable word list,  design and developed at kiddokraft.",
   "scripts": {
     "build": "bun run build.ts",

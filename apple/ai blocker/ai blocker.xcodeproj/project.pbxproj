@@ -1,0 +1,1013 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3207C4FA2F332F3B0026EA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4F92F332F3B0026EA31 /* AppDelegate.swift */; };
+		3207C4FC2F332F3B0026EA31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4FB2F332F3B0026EA31 /* SceneDelegate.swift */; };
+		3207C4FF2F332F3B0026EA31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4FD2F332F3B0026EA31 /* LaunchScreen.storyboard */; };
+		3207C5022F332F3B0026EA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5002F332F3B0026EA31 /* Main.storyboard */; };
+		3207C50B2F332F3B0026EA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C50A2F332F3B0026EA31 /* AppDelegate.swift */; };
+		3207C50E2F332F3B0026EA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3207C50C2F332F3B0026EA31 /* Main.storyboard */; };
+		3207C5152F332F3B0026EA31 /* ai blocker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3207C5142F332F3B0026EA31 /* ai blocker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3207C51F2F332F3B0026EA31 /* ai blocker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3207C51E2F332F3B0026EA31 /* ai blocker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3207C5242F332F3B0026EA31 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4E92F332F390026EA31 /* Main.html */; };
+		3207C5252F332F3B0026EA31 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4E92F332F390026EA31 /* Main.html */; };
+		3207C5262F332F3B0026EA31 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EB2F332F390026EA31 /* Icon.png */; };
+		3207C5272F332F3B0026EA31 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EB2F332F390026EA31 /* Icon.png */; };
+		3207C5282F332F3B0026EA31 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EC2F332F390026EA31 /* Style.css */; };
+		3207C5292F332F3B0026EA31 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EC2F332F390026EA31 /* Style.css */; };
+		3207C52A2F332F3B0026EA31 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4ED2F332F390026EA31 /* Script.js */; };
+		3207C52B2F332F3B0026EA31 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4ED2F332F390026EA31 /* Script.js */; };
+		3207C52C2F332F3B0026EA31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4EE2F332F390026EA31 /* ViewController.swift */; };
+		3207C52D2F332F3B0026EA31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4EE2F332F390026EA31 /* ViewController.swift */; };
+		3207C52E2F332F3B0026EA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EF2F332F3B0026EA31 /* Assets.xcassets */; };
+		3207C52F2F332F3B0026EA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3207C4EF2F332F3B0026EA31 /* Assets.xcassets */; };
+		3207C5302F332F3B0026EA31 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4F12F332F3B0026EA31 /* SafariWebExtensionHandler.swift */; };
+		3207C5312F332F3B0026EA31 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3207C4F12F332F3B0026EA31 /* SafariWebExtensionHandler.swift */; };
+		3207C54B2F332F3C0026EA31 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5432F332F3C0026EA31 /* popup.js */; };
+		3207C54C2F332F3C0026EA31 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5442F332F3C0026EA31 /* background.js */; };
+		3207C54D2F332F3C0026EA31 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5452F332F3C0026EA31 /* popup.html */; };
+		3207C54E2F332F3C0026EA31 /* blocked-words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5462F332F3C0026EA31 /* blocked-words.txt */; };
+		3207C54F2F332F3C0026EA31 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5472F332F3C0026EA31 /* icons */; };
+		3207C5502F332F3C0026EA31 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5482F332F3C0026EA31 /* manifest.json */; };
+		3207C5512F332F3C0026EA31 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5492F332F3C0026EA31 /* _locales */; };
+		3207C5522F332F3C0026EA31 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C54A2F332F3C0026EA31 /* content.js */; };
+		3207C5532F332F3C0026EA31 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5432F332F3C0026EA31 /* popup.js */; };
+		3207C5542F332F3C0026EA31 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5442F332F3C0026EA31 /* background.js */; };
+		3207C5552F332F3C0026EA31 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5452F332F3C0026EA31 /* popup.html */; };
+		3207C5562F332F3C0026EA31 /* blocked-words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5462F332F3C0026EA31 /* blocked-words.txt */; };
+		3207C5572F332F3C0026EA31 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5472F332F3C0026EA31 /* icons */; };
+		3207C5582F332F3C0026EA31 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5482F332F3C0026EA31 /* manifest.json */; };
+		3207C5592F332F3C0026EA31 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 3207C5492F332F3C0026EA31 /* _locales */; };
+		3207C55A2F332F3C0026EA31 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 3207C54A2F332F3C0026EA31 /* content.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3207C5162F332F3B0026EA31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3207C4E32F332F390026EA31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3207C5132F332F3B0026EA31;
+			remoteInfo = "ai blocker Extension (iOS)";
+		};
+		3207C5202F332F3B0026EA31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3207C4E32F332F390026EA31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3207C51D2F332F3B0026EA31;
+			remoteInfo = "ai blocker Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3207C5372F332F3B0026EA31 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3207C5152F332F3B0026EA31 /* ai blocker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C53E2F332F3B0026EA31 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3207C51F2F332F3B0026EA31 /* ai blocker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3207C4EA2F332F390026EA31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		3207C4EB2F332F390026EA31 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3207C4EC2F332F390026EA31 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		3207C4ED2F332F390026EA31 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		3207C4EE2F332F390026EA31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3207C4EF2F332F3B0026EA31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3207C4F12F332F3B0026EA31 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		3207C4F62F332F3B0026EA31 /* ai blocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ai blocker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3207C4F92F332F3B0026EA31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3207C4FB2F332F3B0026EA31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3207C4FE2F332F3B0026EA31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3207C5012F332F3B0026EA31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3207C5032F332F3B0026EA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3207C5082F332F3B0026EA31 /* ai blocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ai blocker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3207C50A2F332F3B0026EA31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3207C50D2F332F3B0026EA31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3207C50F2F332F3B0026EA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3207C5142F332F3B0026EA31 /* ai blocker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ai blocker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3207C5192F332F3B0026EA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3207C51E2F332F3B0026EA31 /* ai blocker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "ai blocker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3207C5232F332F3B0026EA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3207C5432F332F3C0026EA31 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = Resources/popup.js; sourceTree = "<group>"; };
+		3207C5442F332F3C0026EA31 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = Resources/background.js; sourceTree = "<group>"; };
+		3207C5452F332F3C0026EA31 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
+		3207C5462F332F3C0026EA31 /* blocked-words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "blocked-words.txt"; path = "Resources/blocked-words.txt"; sourceTree = "<group>"; };
+		3207C5472F332F3C0026EA31 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
+		3207C5482F332F3C0026EA31 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		3207C5492F332F3C0026EA31 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = Resources/_locales; sourceTree = "<group>"; };
+		3207C54A2F332F3C0026EA31 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = Resources/content.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3207C4F32F332F3B0026EA31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5052F332F3B0026EA31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5112F332F3B0026EA31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C51B2F332F3B0026EA31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3207C4E22F332F390026EA31 = {
+			isa = PBXGroup;
+			children = (
+				3207C4E72F332F390026EA31 /* Shared (App) */,
+				3207C4F02F332F3B0026EA31 /* Shared (Extension) */,
+				3207C4F82F332F3B0026EA31 /* iOS (App) */,
+				3207C5092F332F3B0026EA31 /* macOS (App) */,
+				3207C5182F332F3B0026EA31 /* iOS (Extension) */,
+				3207C5222F332F3B0026EA31 /* macOS (Extension) */,
+				3207C4F72F332F3B0026EA31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3207C4E72F332F390026EA31 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C4EE2F332F390026EA31 /* ViewController.swift */,
+				3207C4EF2F332F3B0026EA31 /* Assets.xcassets */,
+				3207C4E82F332F390026EA31 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		3207C4E82F332F390026EA31 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3207C4E92F332F390026EA31 /* Main.html */,
+				3207C4EB2F332F390026EA31 /* Icon.png */,
+				3207C4EC2F332F390026EA31 /* Style.css */,
+				3207C4ED2F332F390026EA31 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3207C4F02F332F3B0026EA31 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C5422F332F3C0026EA31 /* Resources */,
+				3207C4F12F332F3B0026EA31 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		3207C4F72F332F3B0026EA31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3207C4F62F332F3B0026EA31 /* ai blocker.app */,
+				3207C5082F332F3B0026EA31 /* ai blocker.app */,
+				3207C5142F332F3B0026EA31 /* ai blocker Extension.appex */,
+				3207C51E2F332F3B0026EA31 /* ai blocker Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3207C4F82F332F3B0026EA31 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C4F92F332F3B0026EA31 /* AppDelegate.swift */,
+				3207C4FB2F332F3B0026EA31 /* SceneDelegate.swift */,
+				3207C4FD2F332F3B0026EA31 /* LaunchScreen.storyboard */,
+				3207C5002F332F3B0026EA31 /* Main.storyboard */,
+				3207C5032F332F3B0026EA31 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		3207C5092F332F3B0026EA31 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C50A2F332F3B0026EA31 /* AppDelegate.swift */,
+				3207C50C2F332F3B0026EA31 /* Main.storyboard */,
+				3207C50F2F332F3B0026EA31 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		3207C5182F332F3B0026EA31 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C5192F332F3B0026EA31 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		3207C5222F332F3B0026EA31 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				3207C5232F332F3B0026EA31 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		3207C5422F332F3C0026EA31 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3207C5432F332F3C0026EA31 /* popup.js */,
+				3207C5442F332F3C0026EA31 /* background.js */,
+				3207C5452F332F3C0026EA31 /* popup.html */,
+				3207C5462F332F3C0026EA31 /* blocked-words.txt */,
+				3207C5472F332F3C0026EA31 /* icons */,
+				3207C5482F332F3C0026EA31 /* manifest.json */,
+				3207C5492F332F3C0026EA31 /* _locales */,
+				3207C54A2F332F3C0026EA31 /* content.js */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3207C4F52F332F3B0026EA31 /* ai blocker (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3207C5382F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker (iOS)" */;
+			buildPhases = (
+				3207C4F22F332F3B0026EA31 /* Sources */,
+				3207C4F32F332F3B0026EA31 /* Frameworks */,
+				3207C4F42F332F3B0026EA31 /* Resources */,
+				3207C5372F332F3B0026EA31 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3207C5172F332F3B0026EA31 /* PBXTargetDependency */,
+			);
+			name = "ai blocker (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "ai blocker (iOS)";
+			productReference = 3207C4F62F332F3B0026EA31 /* ai blocker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3207C5072F332F3B0026EA31 /* ai blocker (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3207C53F2F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker (macOS)" */;
+			buildPhases = (
+				3207C5042F332F3B0026EA31 /* Sources */,
+				3207C5052F332F3B0026EA31 /* Frameworks */,
+				3207C5062F332F3B0026EA31 /* Resources */,
+				3207C53E2F332F3B0026EA31 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3207C5212F332F3B0026EA31 /* PBXTargetDependency */,
+			);
+			name = "ai blocker (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "ai blocker (macOS)";
+			productReference = 3207C5082F332F3B0026EA31 /* ai blocker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3207C5132F332F3B0026EA31 /* ai blocker Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3207C5342F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker Extension (iOS)" */;
+			buildPhases = (
+				3207C5102F332F3B0026EA31 /* Sources */,
+				3207C5112F332F3B0026EA31 /* Frameworks */,
+				3207C5122F332F3B0026EA31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ai blocker Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "ai blocker Extension (iOS)";
+			productReference = 3207C5142F332F3B0026EA31 /* ai blocker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3207C51D2F332F3B0026EA31 /* ai blocker Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3207C53B2F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker Extension (macOS)" */;
+			buildPhases = (
+				3207C51A2F332F3B0026EA31 /* Sources */,
+				3207C51B2F332F3B0026EA31 /* Frameworks */,
+				3207C51C2F332F3B0026EA31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ai blocker Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "ai blocker Extension (macOS)";
+			productReference = 3207C51E2F332F3B0026EA31 /* ai blocker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3207C4E32F332F390026EA31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					3207C4F52F332F3B0026EA31 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					3207C5072F332F3B0026EA31 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					3207C5132F332F3B0026EA31 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					3207C51D2F332F3B0026EA31 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 3207C4E62F332F390026EA31 /* Build configuration list for PBXProject "ai blocker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3207C4E22F332F390026EA31;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3207C4F72F332F3B0026EA31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3207C4F52F332F3B0026EA31 /* ai blocker (iOS) */,
+				3207C5072F332F3B0026EA31 /* ai blocker (macOS) */,
+				3207C5132F332F3B0026EA31 /* ai blocker Extension (iOS) */,
+				3207C51D2F332F3B0026EA31 /* ai blocker Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3207C4F42F332F3B0026EA31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C5262F332F3B0026EA31 /* Icon.png in Resources */,
+				3207C4FF2F332F3B0026EA31 /* LaunchScreen.storyboard in Resources */,
+				3207C5242F332F3B0026EA31 /* Main.html in Resources */,
+				3207C52A2F332F3B0026EA31 /* Script.js in Resources */,
+				3207C52E2F332F3B0026EA31 /* Assets.xcassets in Resources */,
+				3207C5022F332F3B0026EA31 /* Main.storyboard in Resources */,
+				3207C5282F332F3B0026EA31 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5062F332F3B0026EA31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C5272F332F3B0026EA31 /* Icon.png in Resources */,
+				3207C5292F332F3B0026EA31 /* Style.css in Resources */,
+				3207C50E2F332F3B0026EA31 /* Main.storyboard in Resources */,
+				3207C52B2F332F3B0026EA31 /* Script.js in Resources */,
+				3207C52F2F332F3B0026EA31 /* Assets.xcassets in Resources */,
+				3207C5252F332F3B0026EA31 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5122F332F3B0026EA31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C55A2F332F3C0026EA31 /* content.js in Resources */,
+				3207C5542F332F3C0026EA31 /* background.js in Resources */,
+				3207C5552F332F3C0026EA31 /* popup.html in Resources */,
+				3207C5532F332F3C0026EA31 /* popup.js in Resources */,
+				3207C5572F332F3C0026EA31 /* icons in Resources */,
+				3207C5582F332F3C0026EA31 /* manifest.json in Resources */,
+				3207C5592F332F3C0026EA31 /* _locales in Resources */,
+				3207C5562F332F3C0026EA31 /* blocked-words.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C51C2F332F3B0026EA31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C5522F332F3C0026EA31 /* content.js in Resources */,
+				3207C54C2F332F3C0026EA31 /* background.js in Resources */,
+				3207C54D2F332F3C0026EA31 /* popup.html in Resources */,
+				3207C54B2F332F3C0026EA31 /* popup.js in Resources */,
+				3207C54F2F332F3C0026EA31 /* icons in Resources */,
+				3207C5502F332F3C0026EA31 /* manifest.json in Resources */,
+				3207C5512F332F3C0026EA31 /* _locales in Resources */,
+				3207C54E2F332F3C0026EA31 /* blocked-words.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3207C4F22F332F3B0026EA31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C52C2F332F3B0026EA31 /* ViewController.swift in Sources */,
+				3207C4FA2F332F3B0026EA31 /* AppDelegate.swift in Sources */,
+				3207C4FC2F332F3B0026EA31 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5042F332F3B0026EA31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C52D2F332F3B0026EA31 /* ViewController.swift in Sources */,
+				3207C50B2F332F3B0026EA31 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C5102F332F3B0026EA31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C5302F332F3B0026EA31 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3207C51A2F332F3B0026EA31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3207C5312F332F3B0026EA31 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3207C5172F332F3B0026EA31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3207C5132F332F3B0026EA31 /* ai blocker Extension (iOS) */;
+			targetProxy = 3207C5162F332F3B0026EA31 /* PBXContainerItemProxy */;
+		};
+		3207C5212F332F3B0026EA31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3207C51D2F332F3B0026EA31 /* ai blocker Extension (macOS) */;
+			targetProxy = 3207C5202F332F3B0026EA31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3207C4E92F332F390026EA31 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3207C4EA2F332F390026EA31 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		3207C4FD2F332F3B0026EA31 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3207C4FE2F332F3B0026EA31 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3207C5002F332F3B0026EA31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3207C5012F332F3B0026EA31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3207C50C2F332F3B0026EA31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3207C50D2F332F3B0026EA31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3207C5322F332F3B0026EA31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3207C5332F332F3B0026EA31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		3207C5352F332F3B0026EA31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker.Extension";
+				PRODUCT_NAME = "ai blocker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3207C5362F332F3B0026EA31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker.Extension";
+				PRODUCT_NAME = "ai blocker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3207C5392F332F3B0026EA31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker";
+				PRODUCT_NAME = "ai blocker";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3207C53A2F332F3B0026EA31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker";
+				PRODUCT_NAME = "ai blocker";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3207C53C2F332F3B0026EA31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker.Extension";
+				PRODUCT_NAME = "ai blocker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3207C53D2F332F3B0026EA31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker.Extension";
+				PRODUCT_NAME = "ai blocker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3207C5402F332F3B0026EA31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker";
+				PRODUCT_NAME = "ai blocker";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3207C5412F332F3B0026EA31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z4AQ8UY953;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ai blocker";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kiddokraft.ai-blocker";
+				PRODUCT_NAME = "ai blocker";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3207C4E62F332F390026EA31 /* Build configuration list for PBXProject "ai blocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3207C5322F332F3B0026EA31 /* Debug */,
+				3207C5332F332F3B0026EA31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3207C5342F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3207C5352F332F3B0026EA31 /* Debug */,
+				3207C5362F332F3B0026EA31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3207C5382F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3207C5392F332F3B0026EA31 /* Debug */,
+				3207C53A2F332F3B0026EA31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3207C53B2F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3207C53C2F332F3B0026EA31 /* Debug */,
+				3207C53D2F332F3B0026EA31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3207C53F2F332F3B0026EA31 /* Build configuration list for PBXNativeTarget "ai blocker (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3207C5402F332F3B0026EA31 /* Debug */,
+				3207C5412F332F3B0026EA31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3207C4E32F332F390026EA31 /* Project object */;
+}

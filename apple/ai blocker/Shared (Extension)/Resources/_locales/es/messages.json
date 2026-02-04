@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "Bloqueador IA",
+    "description": "Nombre de la extensión"
+  },
+  "extensionDescription": {
+    "message": "bloquea contenido sobre IA o cualquier cosa mediante una lista de palabras personalizable, diseñado y desarrollado en kiddokraft.",
+    "description": "Descripción de la extensión"
+  },
+  "toggleOn": {
+    "message": "activado",
+    "description": "Estado del interruptor activado"
+  },
+  "toggleOff": {
+    "message": "desactivado",
+    "description": "Estado del interruptor desactivado"
+  },
+  "blockedWordsLabel": {
+    "message": "palabras bloqueadas (una por línea):",
+    "description": "Etiqueta para el área de texto de palabras bloqueadas"
+  },
+  "placeholderWords": {
+    "message": "agregar palabras para bloquear",
+    "description": "Marcador de posición para el área de texto"
+  },
+  "tipWords": {
+    "message": "consejo: agrega palabras como chatgpt, openai, gemini, etc.",
+    "description": "Consejo para palabras bloqueadas"
+  },
+  "btnSave": {
+    "message": "guardar",
+    "description": "Botón guardar"
+  },
+  "btnRefresh": {
+    "message": "actualizar",
+    "description": "Botón actualizar"
+  },
+  "btnImport": {
+    "message": "importar",
+    "description": "Botón importar"
+  },
+  "btnExport": {
+    "message": "exportar",
+    "description": "Botón exportar"
+  },
+  "optionsTitle": {
+    "message": "opciones",
+    "description": "Título de la sección de opciones"
+  },
+  "debugMode": {
+    "message": "modo depuración (resaltar en lugar de ocultar)",
+    "description": "Opción de modo depuración"
+  },
+  "semanticBlocking": {
+    "message": "bloqueo semántico (bloquear tarjeta completa)",
+    "description": "Opción de bloqueo semántico"
+  },
+  "matchCount": {
+    "message": "cantidad de coincidencias:",
+    "description": "Número de coincidencias requeridas para activar el bloqueo"
+  },
+  "elementDepth": {
+    "message": "profundidad del elemento:",
+    "description": "Cuántos niveles hacia arriba verificar"
+  },
+  "footerText": {
+    "message": "diseñado y desarrollado en",
+    "description": "Texto del pie de página"
+  },
+  "statusSaved": {
+    "message": "$COUNT$ palabras guardadas",
+    "description": "Estado guardado",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "error al guardar",
+    "description": "Estado de error al guardar"
+  },
+  "statusRefreshed": {
+    "message": "página actualizada",
+    "description": "Estado de página actualizada"
+  },
+  "statusErrorRefreshing": {
+    "message": "error al actualizar",
+    "description": "Estado de error al actualizar"
+  },
+  "statusExported": {
+    "message": "exportado",
+    "description": "Estado exportado"
+  },
+  "statusErrorImporting": {
+    "message": "error al importar",
+    "description": "Estado de error al importar"
+  },
+  "statusImported": {
+    "message": "importado",
+    "description": "Estado importado"
+  }
+}

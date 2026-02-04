@@ -1,0 +1,102 @@
+{
+  "extensionName": {
+    "message": "ai blocker",
+    "description": "Extension name"
+  },
+  "extensionDescription": {
+    "message": "blocks content about ai or anything by a customizable word list,  design and developed at kiddokraft.",
+    "description": "Extension description"
+  },
+  "toggleOn": {
+    "message": "on",
+    "description": "Toggle status on"
+  },
+  "toggleOff": {
+    "message": "off",
+    "description": "Toggle status off"
+  },
+  "blockedWordsLabel": {
+    "message": "blocked words (one per line):",
+    "description": "Label for blocked words textarea"
+  },
+  "placeholderWords": {
+    "message": "add words to block",
+    "description": "Placeholder for textarea"
+  },
+  "tipWords": {
+    "message": "tip: add words like chatgpt, openai, gemini, etc.",
+    "description": "Tip for blocked words"
+  },
+  "btnSave": {
+    "message": "save",
+    "description": "Save button"
+  },
+  "btnRefresh": {
+    "message": "refresh",
+    "description": "Refresh button"
+  },
+  "btnImport": {
+    "message": "import",
+    "description": "Import button"
+  },
+  "btnExport": {
+    "message": "export",
+    "description": "Export button"
+  },
+  "optionsTitle": {
+    "message": "options",
+    "description": "Options section title"
+  },
+  "debugMode": {
+    "message": "debug mode (highlight instead of hide)",
+    "description": "Debug mode option"
+  },
+  "semanticBlocking": {
+    "message": "semantic blocking (block entire card)",
+    "description": "Semantic blocking option"
+  },
+  "matchCount": {
+    "message": "match count:",
+    "description": "Number of matches required to trigger blocking"
+  },
+  "elementDepth": {
+    "message": "element depth:",
+    "description": "How many levels up to check"
+  },
+  "footerText": {
+    "message": "design and developed at",
+    "description": "Footer text"
+  },
+  "statusSaved": {
+    "message": "saved $COUNT$ words",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "error saving",
+    "description": "Error saving status"
+  },
+  "statusRefreshed": {
+    "message": "page refreshed",
+    "description": "Page refreshed status"
+  },
+  "statusErrorRefreshing": {
+    "message": "error refreshing",
+    "description": "Error refreshing status"
+  },
+  "statusExported": {
+    "message": "exported",
+    "description": "Exported status"
+  },
+  "statusImported": {
+    "message": "imported",
+    "description": "Imported status"
+  },
+  "statusErrorImporting": {
+    "message": "error importing",
+    "description": "Error importing status"
+  }
+}

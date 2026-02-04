@@ -1,0 +1,103 @@
+{
+  "extensionName": {
+    "message": "AI 차단기",
+    "description": "확장 프로그램 이름"
+  },
+  "extensionDescription": {
+    "message": "사용자 정의 단어 목록으로 AI 또는 기타 콘텐츠를 차단합니다. kiddokraft에서 디자인 및 개발.",
+    "description": "확장 프로그램 설명"
+  },
+  "toggleOn": {
+    "message": "켜짐",
+    "description": "토글 상태 켜짐"
+  },
+  "toggleOff": {
+    "message": "꺼짐",
+    "description": "토글 상태 꺼짐"
+  },
+  "blockedWordsLabel": {
+    "message": "차단 단어 (한 줄에 하나씩):",
+    "description": "차단 단어 텍스트 영역 레이블"
+  },
+  "placeholderWords": {
+    "message": "차단할 단어 추가",
+    "description": "텍스트 영역 플레이스홀더"
+  },
+  "tipWords": {
+    "message": "팁: chatgpt, openai, gemini 등을 추가하세요.",
+    "description": "차단 단어 팁"
+  },
+  "btnSave": {
+    "message": "저장",
+    "description": "저장 버튼"
+  },
+  "btnRefresh": {
+    "message": "새로고침",
+    "description": "새로고침 버튼"
+  },
+  "btnImport": {
+    "message": "가져오기",
+    "description": "가져오기 버튼"
+  },
+  "btnExport": {
+    "message": "내보내기",
+    "description": "내보내기 버튼"
+  },
+  "optionsTitle": {
+    "message": "옵션",
+    "description": "옵션 섹션 제목"
+  },
+  "debugMode": {
+    "message": "디버그 모드 (숨기지 않고 강조)",
+    "description": "디버그 모드 옵션"
+  },
+  "semanticBlocking": {
+    "message": "시맨틱 차단 (전체 카드 차단)",
+    "description": "시맨틱 차단 옵션"
+  },
+  "matchCount": {
+    "message": "일치 횟수:",
+    "description": "차단을 트리거하는 데 필요한 일치 수"
+  },
+  "elementDepth": {
+    "message": "요소 깊이:",
+    "description": "몇 레벨 위까지 확인할지"
+  },
+  "footerText": {
+    "message": "설계 및 개발",
+    "description": "푸터 텍스트"
+  },
+  "statusSaved": {
+    "message": "$COUNT$개 단어 저장됨",
+    "description": "저장됨 상태",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusErrorSaving": {
+    "message": "저장 오류",
+    "description": "저장 오류 상태"
+  },
+  "statusRefreshed": {
+    "message": "페이지 새로고침됨",
+    "description": "페이지 새로고침됨 상태"
+  },
+  "statusErrorRefreshing": {
+    "message": "새로고침 오류",
+    "description": "새로고침 오류 상태"
+  },
+  "statusExported": {
+    "message": "내보내기 완료",
+    "description": "내보내기됨 상태"
+  },
+  "statusErrorImporting": {
+    "message": "가져오기 오류",
+    "description": "가져오기 오류 상태"
+  },
+  "statusImported": {
+    "message": "가져오기 완료",
+    "description": "가져오기됨 상태"
+  }
+}
