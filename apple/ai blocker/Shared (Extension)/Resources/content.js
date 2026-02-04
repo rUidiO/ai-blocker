@@ -392,6 +392,24 @@ function hideBlockedElements() {
       textNodes.push(node);
     }
   }
+  const images = document.querySelectorAll("img[alt]");
+  for (const img of images) {
+    const alt = img.getAttribute("alt");
+    if (alt && containsBlockedWord(alt)) {
+      const elementToHide = findElementToHide(img);
+      if (elementToHide && !isTooLargeToHide(elementToHide)) {
+        if (!elementsToProcess.has(elementToHide)) {
+          elementsToProcess.set(elementToHide, []);
+        }
+      }
+      if (settings.semanticBlocking) {
+        const target = findSemanticBlockTarget(img);
+        if (target && !isTooLargeToHide(target)) {
+          semanticElements.add(target);
+        }
+      }
+    }
+  }
   for (const textNode of textNodes) {
     const parent = textNode.parentElement;
     if (!parent || SKIP_TAGS.has(parent.tagName))

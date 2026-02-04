@@ -290,6 +290,29 @@ function hideBlockedElements(): void {
     }
   }
 
+  // Also check img elements for blocked words in alt attributes
+  const images = document.querySelectorAll<HTMLImageElement>("img[alt]");
+  for (const img of images) {
+    const alt = img.getAttribute("alt");
+    if (alt && containsBlockedWord(alt)) {
+      // Find element to hide for this image
+      const elementToHide = findElementToHide(img);
+      if (elementToHide && !isTooLargeToHide(elementToHide)) {
+        if (!elementsToProcess.has(elementToHide)) {
+          elementsToProcess.set(elementToHide, []);
+        }
+      }
+
+      // Also try semantic blocking for images
+      if (settings.semanticBlocking) {
+        const target = findSemanticBlockTarget(img);
+        if (target && !isTooLargeToHide(target)) {
+          semanticElements.add(target);
+        }
+      }
+    }
+  }
+
   // For each text node with blocked word, find the element to process
   for (const textNode of textNodes) {
     const parent = textNode.parentElement;
