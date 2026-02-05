@@ -1,36 +1,28 @@
-// Browser API abstraction layer
-// Handles differences between Firefox, Chrome, and Safari
-
 declare const chrome: {
   runtime: typeof browser.runtime;
   storage: typeof browser.storage;
   tabs: typeof browser.tabs;
 };
 
-// Detect browser type
 const getBrowserType = (): "firefox" | "chrome" | "safari" => {
   if (typeof browser !== "undefined" && browser.runtime?.id) {
-    // Check if Safari (Safari has browser.* but with some quirks)
-    // Use try-catch because navigator may not be available in service workers
     try {
       const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
       if (ua.includes("Safari") && !ua.includes("Chrome")) {
         return "safari";
       }
     } catch {
-      // Ignore - not Safari
     }
     return "firefox";
   }
   if (typeof chrome !== "undefined" && chrome.runtime?.id) {
     return "chrome";
   }
-  return "chrome"; // Default fallback
+  return "chrome";
 };
 
 const browserType = getBrowserType();
 
-// Get the raw API object
 const getRawApi = () => {
   if (typeof browser !== "undefined") {
     return browser;
@@ -43,7 +35,6 @@ const getRawApi = () => {
 
 const api = getRawApi();
 
-// Storage API wrapper - works the same for all browsers
 export const storage = {
   local: {
     get(keys: string | string[]): Promise<Record<string, unknown>> {
@@ -57,7 +48,6 @@ export const storage = {
             }
           });
         } else {
-          // Firefox and Safari support promises
           api.storage.local.get(keys).then(resolve).catch(reject);
         }
       });
@@ -80,7 +70,6 @@ export const storage = {
   },
 };
 
-// Runtime API wrapper
 export const runtime = {
   getURL(path: string): string {
     return api.runtime.getURL(path);
@@ -97,7 +86,6 @@ export const runtime = {
           }
         });
       } else {
-        // Firefox and Safari
         api.runtime.sendMessage(message).then((response) => {
           resolve(response as T);
         }).catch(reject);
@@ -115,11 +103,9 @@ export const runtime = {
     ): void {
       api.runtime.onMessage.addListener((message, sender, sendResponse) => {
         const result = callback(message, sender, sendResponse);
-        // Return true to indicate async response
         if (result === true) {
           return true;
         }
-        // Handle promise return for Safari/Firefox
         if (result instanceof Promise) {
           result.then(sendResponse);
           return true;
@@ -134,11 +120,9 @@ export const runtime = {
   },
 };
 
-// Action API wrapper (for setting icons)
 export const action = {
   setIcon(details: { path: Record<string, string> }): Promise<void> {
     return new Promise((resolve, reject) => {
-      // Only Chrome needs this - Firefox uses theme_icons in manifest
       if (browserType === "chrome") {
         const chromeApi = api as unknown as { action: { setIcon: (details: { path: Record<string, string> }, callback: () => void) => void } };
         chromeApi.action.setIcon(details, () => {
@@ -155,7 +139,6 @@ export const action = {
   },
 };
 
-// i18n API wrapper
 export const i18n = {
   getMessage(messageName: string, substitutions?: string | string[]): string {
     try {
@@ -173,7 +156,6 @@ export const i18n = {
   },
 };
 
-// Tabs API wrapper
 export const tabs = {
   query(queryInfo: browser.tabs.QueryQueryInfoType): Promise<browser.tabs.Tab[]> {
     return new Promise((resolve, reject) => {

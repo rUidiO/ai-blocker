@@ -26,11 +26,9 @@ async function loadDefaultBlockedWords(): Promise<string[]> {
 }
 
 async function initBlockedWords(): Promise<string[]> {
-  // Check if words already exist in storage
   const result = await storage.local.get("blockedWords");
   const existingWords = result.blockedWords as string[] | undefined;
 
-  // If no words in storage, load defaults from txt
   if (!existingWords || existingWords.length === 0) {
     const defaultWords = await loadDefaultBlockedWords();
     await storage.local.set({ blockedWords: defaultWords });
@@ -47,7 +45,6 @@ async function getSettings(): Promise<Settings> {
   return (result.settings as Settings) || DEFAULT_SETTINGS;
 }
 
-// Set icon based on color scheme (Chrome only - Firefox uses theme_icons in manifest)
 function updateIcon(isDark: boolean) {
   if (browserApi.browserType !== "chrome") return;
 
@@ -65,8 +62,6 @@ function updateIcon(isDark: boolean) {
 function setupIconThemeListener() {
   if (browserApi.browserType !== "chrome") return;
 
-  // matchMedia is not available in service workers (Manifest V3)
-  // Use a default icon instead - Chrome will handle theme automatically via manifest icons
   try {
     if (typeof matchMedia !== "undefined") {
       const mediaQuery = matchMedia("(prefers-color-scheme: dark)");
@@ -75,19 +70,15 @@ function setupIconThemeListener() {
         updateIcon(e.matches);
       });
     } else {
-      // Default to light icons in service worker context
       updateIcon(false);
     }
   } catch {
-    // Service worker - use default icon
     updateIcon(false);
   }
 }
 
-// Initialize words and settings on extension startup
 initBlockedWords();
 
-// Initialize default settings if not set
 async function initSettings(): Promise<void> {
   const result = await storage.local.get("settings");
   if (!result.settings) {
@@ -97,10 +88,8 @@ async function initSettings(): Promise<void> {
 }
 initSettings();
 
-// Setup icon theme switching for Chrome
 setupIconThemeListener();
 
-// Listen for messages from content script or popup
 runtime.onMessage.addListener(
   (
     message: unknown,
@@ -117,7 +106,6 @@ runtime.onMessage.addListener(
     }
 
     if (msg.action === "reloadWords") {
-      // Force reload from txt file
       loadDefaultBlockedWords().then(async (words) => {
         await storage.local.set({ blockedWords: words });
         sendResponse({ words });

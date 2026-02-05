@@ -13,9 +13,7 @@ const enableToggle = document.getElementById("enableToggle") as HTMLInputElement
 const toggleStatus = document.getElementById("toggleStatus") as HTMLSpanElement;
 const loadingIcon = document.getElementById("loadingIcon") as HTMLDivElement;
 
-// Initialize i18n
 function initI18n(): void {
-  // Translate elements with data-i18n attribute
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (key) {
@@ -24,7 +22,6 @@ function initI18n(): void {
     }
   });
 
-  // Translate placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (key) {
@@ -65,7 +62,6 @@ async function loadSettings(): Promise<void> {
     semanticThresholdInput.value = String(settings.semanticThreshold);
     semanticLayerInput.value = String(settings.semanticLayer);
   } catch (error) {
-    // Fallback to storage
     try {
       const result = await storage.local.get("settings");
       const settings = (result.settings as Settings) || defaultSettings;
@@ -120,7 +116,6 @@ async function saveSettings(): Promise<void> {
     try {
       await runtime.sendMessage({ action: "updateSettings", settings });
     } catch (e) {
-      // Ignore message error
     }
   } catch (error) {
     console.error("Error saving settings:", error);
@@ -140,7 +135,6 @@ saveButton.addEventListener("click", async () => {
     try {
       await runtime.sendMessage({ action: "updateWords", words });
     } catch (e) {
-      // Ignore message error
     }
     await saveSettings();
     showStatus("statusSaved", false, [words.length.toString()]);
@@ -155,14 +149,12 @@ saveButton.addEventListener("click", async () => {
 enableToggle.addEventListener("change", async () => {
   updateToggleStatus(enableToggle.checked);
   await saveSettings();
-  // Refresh current tab to apply changes
   try {
     const tabList = await tabs.query({ active: true, currentWindow: true });
     if (tabList[0]?.id) {
       await tabs.sendMessage(tabList[0].id, { action: "refresh" });
     }
   } catch (e) {
-    // Ignore
   }
 });
 debugModeToggle.addEventListener("change", saveSettings);
@@ -187,7 +179,6 @@ refreshButton.addEventListener("click", async () => {
   }
 });
 
-// Initialize
 initI18n();
 loadWords();
 loadSettings();

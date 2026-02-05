@@ -44,8 +44,8 @@ export interface Settings {
   enabled: boolean;
   debugMode: boolean;
   semanticBlocking: boolean;
-  semanticThreshold: number; // minimum number of similar siblings to trigger semantic blocking
-  semanticLayer: number; // how many parent layers to check for repeated elements (1 = direct parent only)
+  semanticThreshold: number;
+  semanticLayer: number;
 }
 
 export interface SettingsResponse {
